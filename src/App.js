@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import Maps from "./Components/Maps";
+import SearchBox from "./Components/SearchBox";
+import React, { useState } from "react";
 
 function App() {
+  const [selectPosition, setSelectPosition] = useState(null)
+  console.log("selectPosition", selectPosition)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{
+      display: "flex",
+      flexDirection: "row",
+      width: "100vw",
+      height: "100vh",
+    }}>
+      <div style={{ width: "70vw", height: "100%" }}>
+        <Maps selectPosition={selectPosition} />
+      </div>
+      <div style={{ width: "30vw", height: "100%" }}>
+        <SearchBox selectPosition={selectPosition} setSelectPosition={setSelectPosition} />
+      </div>
     </div>
   );
 }
