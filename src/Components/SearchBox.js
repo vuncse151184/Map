@@ -22,6 +22,7 @@ import PlaceIcon from '@mui/icons-material/Place';
 import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
 import MoreVertOutlinedIcon from '@mui/icons-material/MoreVertOutlined';
 import SwapVertOutlinedIcon from '@mui/icons-material/SwapVertOutlined';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
 const NOMINATIM_BASE_URL = `https://nominatim.openstreetmap.org/search?`;
 
@@ -64,6 +65,7 @@ function SearchBox(props) {
         setSearchText(e.target.value)
         handleSearch(e.target.value)
         setIsPlaceSelected(false)
+        setShowOptions(false)
     }
     //-------- Show options
     const handleSelectPlace = (place) => {
@@ -100,7 +102,7 @@ function SearchBox(props) {
                     </div>
                     <div>
                         {!showOptions ? (
-                            <List dense={dense}>
+                             <List dense={dense} style={{ maxHeight: "700px", overflowY: "auto" }}>
                                 {listPlace && listPlace.map((item, index) => (
                                     <>
                                         <ListItem key={index} onClick={() => handleSelectPlace(item)} className='place-list'>
@@ -158,7 +160,8 @@ function SearchBox(props) {
             </>
         ) : (
             <div style={{ flex: 1, margin: 20 }}>
-                <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", margin: "40px 40px" }}>
+                <CloseOutlinedIcon style={{ width: 40, height: 40, cursor: 'pointer' }} onClick={() => setIsPlaceSelected(false)} />
+                <div style={{ display: "flex", flexDirection: "row", justifyContent: "space-between", margin: "10px 40px 40px 40px" }}>
                     <DirectionsBikeIcon className='transportations' color="primary" style={{ width: 40, height: 40 }} />
                     <DirectionsBusIcon className='transportations' style={{ width: 40, height: 40 }} />
                     <DirectionsCarIcon className='transportations' style={{ width: 40, height: 40 }} />
@@ -204,7 +207,7 @@ function SearchBox(props) {
                         />
                     </div>
                     <div>
-                        <SwapVertOutlinedIcon style={{ width: 40, height: 40 }} className='transportations'/>
+                        <SwapVertOutlinedIcon style={{ width: 40, height: 40 }} className='transportations' />
                     </div>
                 </div>
 
