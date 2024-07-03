@@ -8,7 +8,7 @@ const icon = L.icon({
     iconSize: [38, 38],
 })
 
-const position = [51.505, -0.09]
+const position = [10.8231, 106.6297]
 
 function ResetCenterView(props) {
     const { selectPosition } = props

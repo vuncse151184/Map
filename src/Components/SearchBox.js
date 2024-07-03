@@ -124,7 +124,7 @@ function SearchBox(props) {
                             <>
                                 <div style={{ margin: "0px 20px", display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
                                     <div>
-                                        <p>{selectPosition?.name},</p>
+                                        <p>{selectPosition?.display_name},</p>
                                         <p>{selectPosition?.address?.country}</p>
                                     </div>
                                     <div style={{ display: "block", justifyContent: "center", textAlign: "center", }}>
